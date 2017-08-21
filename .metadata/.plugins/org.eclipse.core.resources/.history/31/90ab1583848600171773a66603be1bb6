@@ -1,0 +1,9 @@
+package excuseNote;
+
+public class EN 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Dear teacher,");
+	}
+}

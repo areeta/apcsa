@@ -1,0 +1,12 @@
+package excuseNote;
+
+public class EN 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Dear teacher,");
+		System.out.println("I didn't do my homework.");
+		System.out.println("");
+		System.out.println("");
+	}
+}
