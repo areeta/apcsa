@@ -9,6 +9,11 @@ public class DoMath {
 		System.out.println(Calculate.toDegrees(10));
 		System.out.println(Calculate.toRadians(10));
 		
+		System.out.println("\ta\tb\tc");
+		System.out.println("\\\\");
+		System.out.println("'");
+		System.out.println("\"\"\"");
+		System.out.println("C:\nin\the downward spiral");
 	}
 
 }
