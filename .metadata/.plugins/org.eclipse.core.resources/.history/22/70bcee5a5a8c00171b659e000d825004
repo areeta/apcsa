@@ -44,8 +44,8 @@ public class Calculate
 	
 	public static String toImproperFrac(int wholeNumber, int numerator, int denominator) 
 	{
-		int ab = (wholeNumber*denominator + numerator);
-	    String answer = ab + "/" + denominator;
+		int ab = (wholeNumber*denominator);
+	    String answer = ab + " " + (numerator + "/" + denominator);
 		String answer2= answer.toString();
 		return answer2;
 	}

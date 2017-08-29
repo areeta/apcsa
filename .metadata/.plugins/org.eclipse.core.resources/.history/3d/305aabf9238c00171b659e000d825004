@@ -44,19 +44,15 @@ public class Calculate
 	
 	public static String toImproperFrac(int wholeNumber, int numerator, int denominator) 
 	{
-		int ab = (wholeNumber*denominator + numerator);
-	    String answer = ab + "/" + denominator;
-		String answer2= answer.toString();
-		return answer2;
+		String answer = (wholeNumber*denominator) + numerator + "/" + denominator;
+		return answer;
 	}
 
-	public static String toMixedNum(int x, int y) 
-	{
-		int answer1 = x/y;
-		int answer2 = (x % y);
-		String answer3 = answer1 + "_" + answer2 + "/" + y;
-		return answer3;
-	}
+//	public static String toMixedNum(int x, int y) 
+//	{
+//		String answer = ;
+//		return answer;
+//	}
 	
 	public static String foil(int a, int b, int c, int d, String x) 
 	{
