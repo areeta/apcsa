@@ -46,8 +46,7 @@ public class Calculate
 	{
 		int ab = (wholeNumber*denominator + numerator);
 	    String answer = ab + "/" + denominator;
-		String answer2= answer.toString();
-		return answer2;
+		return answer;
 	}
 
 	public static String toMixedNum(int x, int y) 
@@ -69,6 +68,146 @@ public class Calculate
 		String answer2= answer1.toString();
 		return answer2;
 	}
-
 	
+	public static boolean isDivisibleBy(int a, int b) {
+		boolean answer = true;
+		if ((a%b) == 0) {
+			answer = true;
+		} else {
+			answer = false;
+		}
+		return answer;
+	}
+	
+	public static double absValue(double a) {
+		if (a > 0) {
+			return a;
+		} else {
+			return (a*-1);
+		}
+	}
+	
+	public static double max(double a, double b) {
+		if (a > b) {
+			return a;
+		} else { 
+			return b;
+		}
+	}
+	
+	public static double max(double a, double b, double c) {
+		if (a > b) {
+			return a;
+		} else if (a > c) {
+			return a;
+		} else if (b > a) {
+			return b;
+		} else if (b > c) {
+			return b;
+		} else if (c > b) {
+			return c;
+		} else if (c > a ) {
+			return c;
+		} else {
+			return c; 
+		}
+	}
+
+	public static int min(int a, int b) {
+		if (a < b) {
+			return a;
+		} else { 
+			return b;
+		}
+	}
+	
+	public static double round2(double a) {
+		double answer = a;
+		if ( a > 0) { 
+			answer = a * 1000;
+			if ((answer % 10) > 5) {
+				double minusTen = 10 - (answer % 10);
+				answer = answer + minusTen;
+				answer = answer / 1000;
+			} else  {
+				answer = a * 100;
+				answer = (int) answer;
+				answer = answer / 100;
+			}
+			return answer;
+		}
+		else {
+			answer = -a * 1000;
+			if ((answer % 10) > 5) {
+				double minusTen = 10 - (answer % 10);
+				answer = answer + minusTen;
+				answer = answer / 1000;
+			} else {
+				answer = a * 100;
+				answer = (int) answer;
+				answer = answer / 100;
+			}
+			return (answer*-1);
+		}
+				
+	}
+	
+	public static double exponent(double base, int exponent) {
+		for (int counter = 1; counter < exponent; counter++) {
+			base *= base;
+		}
+		return base;
+	}
+	
+	public static int factorial(int number) {
+		int originalNumber = number;
+		for (int count = 1; count <= originalNumber; count++) {
+			originalNumber -= 1;
+			number *= originalNumber;
+		}
+		return number;
+	}
+	
+	public static boolean isPrime(int num1) {
+		int count = 2;
+		boolean answer = false;
+
+		if (num1 == 2) {
+			answer = true;
+			return answer;
+		}
+		while ((isDivisibleBy(num1, count) == false)) {
+			count += 1;	
+			answer = true;
+		}
+		return answer;
+	}
+	
+	public static int gcf(int num1, int num2) {
+		int answer = 1;
+		int count = 1;
+		while (count <= min(num1, num2)) {
+			if (isDivisibleBy(num1, count) && isDivisibleBy(num2, count)){
+				answer = count;
+				count += 1;
+
+			} else {
+				count += 1;		
+			}
+		}
+		return answer;
+	}
+	
+	public static double sqrt(double valuePassed) {
+		
+		double a = (valuePassed/2); // should be a guess
+		a = 0.5 * ((valuePassed/a) + a);
+		
+		while (absValue(valuePassed - a*a) >= 0.005) { 
+			a = 0.5 * ((valuePassed/a) + a);
+		}	
+		
+		return round2(a);
+	}
 }
+

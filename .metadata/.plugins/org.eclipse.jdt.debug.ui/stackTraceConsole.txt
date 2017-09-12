@@ -1,0 +1,2 @@
+originalNumber -= 1;
+			number *= originalNumber;
