@@ -20,11 +20,8 @@ public class WarmUp_8_24
 		newsReport = newsReport + ". " + lion + " is full.";
 		System.out.println(newsReport);
 		
-		// Warm up for September 14, 2017
 		Scanner console = new Scanner(System.in);
 		System.out.println("Question");
 		String input = console.nextLine();
-		System.out.println("You entered " + input);
-		console.close();
 	}
 }

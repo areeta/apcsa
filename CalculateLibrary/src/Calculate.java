@@ -210,17 +210,8 @@ public class Calculate
 		return round2(a);
 	}
 	
-	public static int rangeOfNumbers(int start, int end) {
-		
-		if (start<end) {
-			for (int i = 0;i < (end-start); i--) { 
-				start -= 1;
-				System.out.println(start);
-			}
-			
-		}return start;
-	}
-			
+//	public static String quadForm(int a, int b, int c)
+//	}	
 	
 }
 

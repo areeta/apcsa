@@ -25,6 +25,5 @@ public class WarmUp_8_24
 		System.out.println("Question");
 		String input = console.nextLine();
 		System.out.println("You entered " + input);
-		console.close();
 	}
 }
