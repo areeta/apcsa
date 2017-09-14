@@ -80,13 +80,11 @@ public class Calculate
 	}
 	
 	public static double absValue(double a) {
-		double answer = a;
 		if (a > 0) {
-			answer = a;
+			return a;
 		} else {
-			a *= -1;
+			return (a*-1);
 		}
-		return answer;
 	}
 	
 	public static double max(double a, double b) {
@@ -155,21 +153,15 @@ public class Calculate
 	}
 	
 	public static double exponent(double base, int exponent) {
-		int counter = 1;
-		double original = base;
-		while (counter != exponent) {
-			counter += 1;
-			base *= original;
+		for (int counter = 1; counter < exponent; counter++) {
+			base *= base;
 		}
 		return base;
 	}
 	
 	public static int factorial(int number) {
-		int count = 1;
 		int originalNumber = number;
-			
-		while (count <= originalNumber) {
-			count += 1;
+		for (int count = 1; count <= originalNumber; count++) {
 			originalNumber -= 1;
 			number *= originalNumber;
 		}
@@ -207,15 +199,33 @@ public class Calculate
 	}
 	
 	public static double sqrt(double valuePassed) {
-		absValue(valuePassed);
-		double random = 1;
+		
 		double a = (valuePassed/2); // should be a guess
-		while ((valuePassed - (random*random)) > 0.005) { 
-			random = .5 * ((valuePassed/a) + a);
-			System.out.println(random);
-			a = random;
+		a = 0.5 * ((valuePassed/a) + a);
+		
+		while (absValue(valuePassed - a*a) >= 0.005) { 
+			a = 0.5 * ((valuePassed/a) + a);
 		}	
-		return round2(random);
+		
+		return round2(a);
+	}
+	
+	public static void rangeOfNumbers(int start, int end) {
+		if (start<end) {
+			for (int i = 0;i < (end-start); i++) { 
+				start += 1;
+				System.out.print(" ");
+			}
+			
+		} else if (start > end) {
+			for (int i = 0; i < (start-end); i--) {
+				start -= 1;
+				System.out.print(start + " ");
+			}
+		} else {
+			System.out.print(start);
+		}
+		
 	}
 }
 
