@@ -1,2 +1,3 @@
-originalNumber -= 1;
-			number *= originalNumber;
+if (number < 0 ) { 
+			System.out.println("IllegalArgumentException");
+		} else { 

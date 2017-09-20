@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class QuadraticClient {
+
+	
+//     Your quadraticDescriber method should drive this class and handle printing. 
+//		In the process of doing so, it should make calls to these other methods.  
+//      QuadraticClient will contain a main method and handle interactions with the 
+//		user (taking input values, for example).  It will call the method quadrDescriber 
+//		with the appropriate arguments.  However, it will not call any other mathematical 
+//		methods. 
+
+		public static void quadDescriber (double a, double b, double c) {
+			Scanner console = new Scanner(System.in);
+			System.out.println("Provide values for coefficicent a, b, and c");
+			System.out.println("a:");
+			String inputA = console.nextLine();
+			System.out.println("b:");
+			String inputB = console.nextLine();
+			System.out.println("c:");
+			String inputC = console.nextLine();
+
+			System.out.println("Do you want to keep going? (Type \"quit\" to end");
+		}
+
+}
+

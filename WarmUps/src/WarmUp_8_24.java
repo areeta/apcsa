@@ -25,6 +25,17 @@ public class WarmUp_8_24
 		System.out.println("Question");
 		String input = console.nextLine();
 		System.out.println("You entered " + input);
-		console.close();
+		
+		    System.out.print("What is your phrase? ");
+		    String phrase = console.next();
+		    System.out.print("How many times should I repeat it? ");
+		    String times = console.next();
+		    int i;
+		    i = Integer.valueOf(times).intValue();
+		    while (i != 0) {
+		        System.out.println(phrase); 
+		        i = i-1;
+		    }
+
 	}
 }
