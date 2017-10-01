@@ -1,0 +1,32 @@
+import java.io.FileNotFoundException;
+
+public class ScrambleIt {
+
+	public static void main(String[] args) throws FileNotFoundException{
+//		scrambleIt("TAN");
+//		scrambleIt("ABRACADABRA");
+//		scrambleIt("WHOA");
+//		scrambleIt("AARDVARK");
+//		scrambleIt("EGGS");
+		scrambleIt("A");
+		scrambleIt("");
+	}
+	
+	public static String scrambleIt(String word) {
+		
+		int wordLength = word.length();
+		if (wordLength < 2) {
+			return word;
+		} else {
+			for (int i = 0;i < wordLength; i++) {
+				if (word.substring(i, i+2).equals("A")) {
+					if (!word.substring(i,i+3).equals("A")) {
+						return word.substring(i, i+3);
+					}
+				}
+			}
+		}
+		return word;
+	}
+
+}
