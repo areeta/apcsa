@@ -68,6 +68,75 @@ public class WarmUp_8_24
 		    	}
 		    	System.out.println();;
 		    }
+		    
+		 firstIsLast("edited");
+		 firstIsLast("edit");
+		 firstIsLast("ed");
+		 firstIsLast("");
+		 
+		 palindromeMaker("rad", false);
+		 palindromeMaker("deif", false);
+		 palindromeMaker("neverod", true);
+		 
+		 longestRun(20);
+	}
+	
+	public static boolean firstIsLast(String word) {
+
+		int wordLength = word.length();
+		boolean isRight = false;
+		
+		if (wordLength < 2) {
+			isRight = false;
+		} else if (word.substring(0, 2).equals(word.substring(wordLength-2))) {
+			isRight = true;
+		}
+		System.out.println(isRight);
+		return isRight;
+	}
+	
+	public static String palindromeMaker(String firstPart, boolean repeatMiddle) {
+		int numLetters = firstPart.length();
+		String answer = "";
+		
+		if (repeatMiddle == false)  {
+			answer += firstPart;
+			for (int i = numLetters-2; i >= 0; i--) {
+				answer += firstPart.charAt(i);
+			}
+		} else {
+			answer += firstPart;
+			for (int z = numLetters -1; z >= 0; z--) {
+				answer += firstPart.charAt(z);
+			}
+		}
+		System.out.println(answer);
+		return answer;
+	}
+	
+	public static void longestRun(int numberFlips) {
+		String theOutput = "";
+		int tails = 0;
+		int heads = 0;
+		
+		for (int i = 0; i <= numberFlips; i++) {
+			int randFlip = (int) (Math.random() * 2);
+			if (randFlip == 0) {
+				theOutput += "H";
+				heads += 1;
+			} else {
+				theOutput += "T";
+				tails += 1;
+			}
+		}
+		
+		System.out.println(theOutput);
+		
+		if (heads > tails) {
+			System.out.println("Longest run was " + heads + " heads.");
+		} else {
+			System.out.println("Longest run was " + tails + " tails.");
+		}
 	}
 }
 
