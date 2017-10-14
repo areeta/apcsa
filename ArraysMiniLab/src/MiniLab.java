@@ -73,7 +73,7 @@ public class MiniLab
 		int amountOfMeals = 0;
 		
 		for (int j = 0; j <= numMeals-1; j++) {
-			if (mealPrices[j] > 8.0){
+			if (mealPrices[j] > 8.0) {
 				amountOfMeals += 1;
 			}
 		}
