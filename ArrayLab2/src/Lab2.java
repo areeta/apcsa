@@ -79,14 +79,43 @@ public class Lab2 {
 		System.out.println(findAndReplace(iLike, "like", "hate"));
 		System.out.println(findAndReplace(empty, "", "d"));
 		
-		int[] position = {1, 2, 3, 4, 5, 6};
-		
-		int k = position[0];
-		position[0] = position[5];
-		position[5] = k;
-		
-		System.out.println(Arrays.toString(position));
-			
+		System.out.println(remove(rev, 2));
+	
 	}
+	
+	public static String sum(int[] arr1, int[] arr2) {
+		int[] answer = new int[arr1.length];
+		for (int i = 0; i <= answer.length-1; i++) {
+			answer[i] = arr1[i] + arr2[i];
+		}
+		return Arrays.toString(answer);
+	}
+	
+	public static String remove(int[] nums, int index) {
+		int[] newNums = new int[nums.length-1];
+		for (int i = 0; i <= index-1; i++) {
+			newNums[i] = nums[i]; 
+			System.out.println(Arrays.toString(newNums));
+		}
+		for(int j = index; j <= nums.length-2; j++) {
+			newNums[j] = nums[j+1];
+			System.out.println(Arrays.toString(newNums));
+		}
+		
+		return (Arrays.toString(newNums)) ;
+		}
+	
+	public static void rotateRight(String[] str) {
+		String last = str[str.length -1];
+		for(int i =str.length - 1; i> 0 ; i--) {
+			str[i] = str[i-1];
+		}
+		str[0] = last;
+		System.out.println(last);
+		}
+	}
+	
+	
 
-}
+
+
