@@ -1,5 +1,4 @@
 import java.util.Arrays;
-
 public class ArrayLab3 {
 
 	public static void main(String[] args) {
@@ -7,14 +6,24 @@ public class ArrayLab3 {
 		boolean[] trueOrFalse = {true, true, false, true, false};
 		System.out.println(lieDetector(trueOrFalse));
 		
+		
+		
 		int[] numbers = {5, 6, 7, 8, 9, 10};
+		for (int i: numbers) {
+			System.out.println(i);
+		}
 		shiftsLeftByOne(numbers);
 		
 		String[] studentNums = {"Vanessa", "Areeta", "Charles", "Lucy", "Marcus"};
 		System.out.println(Arrays.toString(photoBomb(studentNums)));
 		
-		String[] fourLetteredOne = {"Vanessa", "Areeta", "Charles", "Nata", "Cata", "Bata"};
+		String[] fourLetteredOne = {"Vanessa", "Areeta", "Charles", "Nat", "Cata", "Bata"};
+		
+		
+		
 		System.out.println(fourLetterWords(fourLetteredOne));
+		
+		
 	}
 
 	/*
@@ -73,11 +82,13 @@ public class ArrayLab3 {
 	 */
 	public static int fourLetterWords (String[] arr) {
 		int numOfFourLetterWords = 0;
-		for (int items = 0; items <= arr.length - 1; items++) {
+		int items = 0;
+		for (String n: arr) {
 			String newWord = arr[items];
 			if (newWord.length() == 4) {
 				numOfFourLetterWords++;
 			}
+			items++;
 		}
 		return numOfFourLetterWords;
 	}
