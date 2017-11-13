@@ -22,8 +22,8 @@ public class ComplexClient {
 		System.out.println(c4.toString());
 		
 		//find the distance
-		double c5 = c1.distanceTo(c2);
-		System.out.println(c5);
+		Double c5 = c1.distanceTo(c2);
+		System.out.println(c5.toString());
 		
 		//Number #6 on the Complex Lab
 		System.out.println(c1);

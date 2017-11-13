@@ -11,12 +11,12 @@ public class Complex {
 	public Complex(int real, int imag) {
 		this.real = real;
 		this.imag = imag;
-		this.quadrant = quad(real, imag);
+		this.quadrant = quad();
 	}
 	public Complex() {
 		this.real = 0;
 		this.imag = 0;
-		this.quadrant = quad(real, imag);
+		this.quadrant = quad();
 	}
 	
 	//Getters
@@ -30,15 +30,15 @@ public class Complex {
 	//Setters
 	public void setReal(int newReal) {
 		real = newReal;
-		this.quadrant = quad(newReal, real);
+		this.quadrant = quad();
 	}
 	public void setImag(int newImag) {
 		imag = newImag;
-		this.quadrant = quad(this.real, newImag);
+		this.quadrant = quad();
 	}
 	
 	//Quadrant method
-	public int quad(int real, int imag) {
+	public int quad() {
 		if (real>0 && imag>0) {
 			quadrant = 1;
 		} else if (real>0 && imag<0) {
