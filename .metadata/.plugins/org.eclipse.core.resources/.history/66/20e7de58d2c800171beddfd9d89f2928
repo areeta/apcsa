@@ -1,0 +1,8 @@
+package fracCalc;
+
+public class Fraction {
+
+	private int numeratorNum = 0;
+	private int denominatorNum = 0;
+
+}

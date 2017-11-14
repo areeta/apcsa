@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class FracCalc {
 
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
     	//Checkpoint 2
     	boolean run = true;
     	while (run) {
@@ -32,48 +31,51 @@ public class FracCalc {
     //        
     // The function should return the result of the fraction after it has been calculated
     //      e.g. return ==> "1_1/4"
-    public static String produceAnswer(String input)
-    {
-    	//Checkpoint 1
-//    	String[] arr = input.split(" ");
-//        return arr[arr.length-1];
-        
-        //Checkpoint 2
-    	int wholeNum = 0;
-    	int numeratorNum = 0;
-    	int denominatorNum = 0;
+    
+    public static String produceAnswer(String input) {
+		
+		//Checkpoint 3
+//		•	produceAnswer must now evaluate the formula it is given (performing addition, subtraction, multiplication,
+//			and division, based on the operator specified), and return the actual answer of that calculation (instead 
+// 			of just returning the second operand). 
+//		•	The answer need not be reduced, and need not be a mixed fraction.  But it must be correct.
+//		•	All kinds of input values the user might enter must be accepted, including simple fractions, improper 
+//  		fractions, mixed fractions, and integers.
     	
     	String[] arr = input.split(" ");
-    	String ans = arr[arr.length-1];
+    	String ans1 = arr[0];
+    	String ans2 = arr[2];
+    	    	
+//    	String operator = arr[1]; 	
     	
-    	int slash = ans.indexOf("/");
-    	int underscore = ans.indexOf("_");
-    	
-    	if (slash>0 && underscore>0) {
-    		
-    		String[] arr2 = ans.split("_");
-    		wholeNum = Integer.parseInt(arr2[0]);
-    		
-    		String frac = arr2[1];
-    		String[] arr3 = frac.split("/");
-    		
-    		numeratorNum = Integer.parseInt(arr3[0]);
-    		denominatorNum = Integer.parseInt(arr3[1]);
-    		    		
-    	} else if(slash>0)  {
-    		
-    		String[] arr4 = ans.split("/");
-    		
-    		numeratorNum = Integer.parseInt(arr4[0]);
-    		denominatorNum = Integer.parseInt(arr4[1]);
-    		
-    	} else {
-    		
-    		wholeNum = Integer.parseInt(ans);
-    		denominatorNum = 1;
-    		
-    	}
-        return "whole:" + wholeNum + " numerator:" + numeratorNum + " denominator:" + denominatorNum;
-    }
+    	// GIANT IF STATEMENT
+		
+		if (arr[1] == "+") {
+			
+			Fraction frac1 = new Fraction(ans1);
+			Fraction frac2 = new Fraction(ans2);
+			
+		} else if(arr[1] == "-") {
+			
+			Fraction frac1 = new Fraction(ans1);
+			Fraction frac2 = new Fraction(ans2);
+
+		} else if(arr[1] == "/") {
+			
+			Fraction frac1 = new Fraction(ans1);
+			Fraction frac2 = new Fraction(ans2);
+
+		} else if(arr[1] == "*") {
+			
+			Fraction frac1 = new Fraction(ans1);
+			Fraction frac2 = new Fraction(ans2);
+			
+		}
+		
+		return frac1.toString() + "/" + frac2.toString();
+    }    	
+    
+//    public static String commonDenominator()
+
     // TODO: Fill in the space below with any helper methods that you think you will need
 }
