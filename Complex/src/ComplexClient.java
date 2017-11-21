@@ -26,7 +26,9 @@ public class ComplexClient {
 		System.out.println(c5);
 		
 		//Number #6 on the Complex Lab
-		System.out.println(c1);
+		System.out.println(c1);		
+		
+		System.out.println(distanceBetween(c4, c4));
 		
 	}
 
