@@ -205,8 +205,6 @@ public class ArrayListPracticeLab
 		System.out.println(doubleList(convertArrayToList(test_doub_1)));
 		System.out.println(doubleList(convertArrayToList(test_doub_2)));
 		System.out.println(doubleList(convertArrayToList(test_doub_3)));
-		
-		System.out.println("sdfdsfd");
 	
 	}
 

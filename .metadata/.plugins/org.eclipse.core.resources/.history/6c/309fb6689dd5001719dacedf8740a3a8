@@ -133,13 +133,13 @@ public class ArrayListPracticeLab
 	 * after the method finishes executing.
 	 */
 	
-	public static ArrayList<String> doubleList(ArrayList<String> param) {
+	public static void doubleList(ArrayList<String> param) {
 		for (int i = 0; i <= param.size()-1; i++) {
 			String ans1 = param.get(i);
 			param.add(ans1);
 		}
 		
-		return param;
+		System.out.println(param);
 	}
 	
 	public static void main(String[] args) 
@@ -202,11 +202,9 @@ public class ArrayListPracticeLab
 		String[] test_doub_2 = {"One string only"};		
 		String[] test_doub_3 = {};	
 		
-		System.out.println(doubleList(convertArrayToList(test_doub_1)));
-		System.out.println(doubleList(convertArrayToList(test_doub_2)));
-		System.out.println(doubleList(convertArrayToList(test_doub_3)));
-		
-		System.out.println("sdfdsfd");
+		doubleList(convertArrayToList(test_doub_1));
+		doubleList(convertArrayToList(test_doub_2));
+		doubleList(convertArrayToList(test_doub_3));
 	
 	}
 

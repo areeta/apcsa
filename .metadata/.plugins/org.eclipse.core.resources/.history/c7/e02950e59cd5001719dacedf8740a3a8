@@ -133,13 +133,11 @@ public class ArrayListPracticeLab
 	 * after the method finishes executing.
 	 */
 	
-	public static ArrayList<String> doubleList(ArrayList<String> param) {
+	public static void doubleList(ArrayList<String> param) {
 		for (int i = 0; i <= param.size()-1; i++) {
 			String ans1 = param.get(i);
 			param.add(ans1);
 		}
-		
-		return param;
 	}
 	
 	public static void main(String[] args) 
@@ -172,11 +170,11 @@ public class ArrayListPracticeLab
 		String[] test_swap_2 = {"I", "love", "programming!"};
 		String[] test_swap_3 = {"don't move me"};
 		String[] test_swap_4 = {};
-//
-//		System.out.println(swapPairs(convertArrayToList(test_swap_1)));
-//		System.out.println(swapPairs(convertArrayToList(test_swap_2)));
-//		System.out.println(swapPairs(convertArrayToList(test_swap_3)));
-//		System.out.println(swapPairs(convertArrayToList(test_swap_4)));
+
+		System.out.println(swapPairs(convertArrayToList(test_swap_1)));
+		System.out.println(swapPairs(convertArrayToList(test_swap_2)));
+		System.out.println(swapPairs(convertArrayToList(test_swap_3)));
+		System.out.println(swapPairs(convertArrayToList(test_swap_4)));
 		
 		// To test your removeEvenLength method, convert the following to ArrayLists of Strings and 
 		// pass them into your removeEvenLength method.  
@@ -187,10 +185,6 @@ public class ArrayListPracticeLab
 		String[] test_rem_1 = {"This", "is", "a", "test"};
 		String[] test_rem_2 = {"Did", "you", "solve", "it", "or", "what?"};
 		String[] test_rem_3 = {};
-		
-		System.out.println(removeEvenLength(convertArrayToList(test_rem_1)));
-		System.out.println(removeEvenLength(convertArrayToList(test_rem_2)));
-		System.out.println(removeEvenLength(convertArrayToList(test_rem_3)));
 				
 		// To test your doubleList method, convert the following to ArrayLists of Strings and 
 		// pass them into your doubleList method.  
@@ -200,14 +194,11 @@ public class ArrayListPracticeLab
 		//    <blank>
 		String[] test_doub_1 = {"how", "are", "you?"};
 		String[] test_doub_2 = {"One string only"};		
-		String[] test_doub_3 = {};	
+		String[] test_doub_3 = {};		
 		
-		System.out.println(doubleList(convertArrayToList(test_doub_1)));
-		System.out.println(doubleList(convertArrayToList(test_doub_2)));
-		System.out.println(doubleList(convertArrayToList(test_doub_3)));
-		
-		System.out.println("sdfdsfd");
-	
 	}
+		
+		
+
 
 }
