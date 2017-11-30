@@ -63,8 +63,6 @@ public class FracCalc {
 		
 		Fraction answer = new Fraction("-9999999");
 
-		
-	
     	// GIANT IF STATEMENT
 		
 		if (operator.equals("+")) {
