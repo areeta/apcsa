@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 
-public class ArrayListPracticeLab 
-{
+public class ArrayListPracticeLab {
+	
 	// printMe is just a quick tool to check your work.  Use it in conjunction with the test cases in main
-	public static void printMe(ArrayList<String> theList)
-	{
+	public static void printMe(ArrayList<String> theList) {
 		for (String str : theList)
 			System.out.print(str + ", ");
 			// I know, it prints an extra comma... live with it.  
@@ -18,14 +17,11 @@ public class ArrayListPracticeLab
 	 */
 	
 	public static ArrayList<String> convertArrayToList(String[] param) {
-		
 		ArrayList<String> answer = new ArrayList<String>();
-		
 		for (int i = 0; i <= param.length - 1; i++) {
 			String ans = param[i];
 			answer.add(ans);
 		}
-		
 		return answer;
 	}
 	
@@ -39,7 +35,6 @@ public class ArrayListPracticeLab
 	public static int maxLength(ArrayList<String> param) {
 		
 		int longestString = 0;
-		
 		if (param.isEmpty()) {
 			longestString = 0;
 		} else {
@@ -50,7 +45,6 @@ public class ArrayListPracticeLab
 				}
 			}
 		}
-		
 		return longestString;
 	}
 	
@@ -73,30 +67,33 @@ public class ArrayListPracticeLab
 	
 	public static ArrayList<String> swapPairs(ArrayList<String> param) {
 		
+		int len = param.size();
+		String first = "";
+		String second = "";
+		
 		ArrayList<String> answer = new ArrayList<String>();
 		
-		if ((param.size()%2) == 0) {
-			for (int i = 0; i >= (param.size()-1)/2; i++) {
-				String first = param.get(i);
-				String secondOriginal = param.get(i+1);
-				String second = param.get(i+1);
-				second = first;
-				answer.add(second);
-				first = secondOriginal;
-				answer.add(first);
+		if (len%2 == 0) {
+			for (int i = 0; i < len-1; i+=2) {
+				first = param.get(i);
+				second = param.get(i+1);
+				
+				answer.add(i, second);
+				answer.add(i+1, first);
 			}
-		} else if (!((param.size()%2) == 0)){
-			for (int i = 0; i >= (param.size()-2)/2; i++) {
-				String first = param.get(i);
-				String secondOriginal = param.get(i+1);
-				String second = param.get(i+1);
-				second = first;
-				answer.add(second);
-				first = secondOriginal;
-				answer.add(first);
+		} else if (len%2 == 1) {
+			for (int i = 0; i < len-2; i+=2) {
+				first = param.get(i);
+				second = param.get(i+1);
+				
+				answer.add(i, second);
+				answer.add(i+1, first);
 			}
+			
+			answer.add(param.get(len-1));
+		} else { 
+			return param;
 		}
-		
 		return answer;
 	}
 	
@@ -113,13 +110,19 @@ public class ArrayListPracticeLab
 		
 		ArrayList<String> answer = new ArrayList<String>();
 		
-		for (int i = 0; i <= param.size() - 1; i++) {
+		for (int i = 0; i < param.size(); i++) {
 			String ans1 = param.get(i);
-			if (!((ans1.length() % 2) == 0)) {
-				answer.add(ans1);
-			}
+			answer.add(ans1);
 		}
 		
+		for (int i = 0; i < answer.size(); i++) {
+			String ans2 = answer.get(i);
+			
+			if ((ans2.length()%2) == 0) {
+				answer.remove(i);
+				i--;
+			}
+		}
 		return answer;
 	}
 
@@ -134,16 +137,18 @@ public class ArrayListPracticeLab
 	 */
 	
 	public static ArrayList<String> doubleList(ArrayList<String> param) {
-		for (int i = 0; i <= param.size()-1; i++) {
+		int theLength = param.size();
+		for (int i = 0; i <= theLength-1; i+=2) {
 			String ans1 = param.get(i);
-			param.add(ans1);
+			param.add(i+1, ans1);
 		}
-		
+		if (!(param.isEmpty()) && param.size()>2) { 
+			param.add(param.get(param.size()-1));
+		}
 		return param;
 	}
 	
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		// Declare an ArrayList of String named myList.  Then fill it with: "this", "is", "it".  Print myList using printMe().
 		
 		ArrayList<String> myList = new ArrayList<String>();
@@ -155,6 +160,7 @@ public class ArrayListPracticeLab
 		// To test your maxLength method, convert the following to ArrayLists of Strings and 
 		// pass them into your maxLength method.  (You'll want to complete the convertArrayToList method first.)
 		// Expected output:  6, 27, 0
+		
 		String[] test_max_1 = {"to", "be", "or", "not", "to", "be", "hamlet"};  
 		String[] test_max_2 = {"Only one really long string"};
 		String[] test_max_3 = {};
@@ -168,15 +174,16 @@ public class ArrayListPracticeLab
 		//    love, I, programming!
 		//    don't move me
 		//    <blank>
+		
 		String[] test_swap_1 = {"four", "score", "and", "seven", "years", "ago"};
 		String[] test_swap_2 = {"I", "love", "programming!"};
 		String[] test_swap_3 = {"don't move me"};
 		String[] test_swap_4 = {};
-//
-//		System.out.println(swapPairs(convertArrayToList(test_swap_1)));
-//		System.out.println(swapPairs(convertArrayToList(test_swap_2)));
-//		System.out.println(swapPairs(convertArrayToList(test_swap_3)));
-//		System.out.println(swapPairs(convertArrayToList(test_swap_4)));
+
+		printMe(swapPairs(convertArrayToList(test_swap_1)));
+		printMe(swapPairs(convertArrayToList(test_swap_2)));
+		printMe(swapPairs(convertArrayToList(test_swap_3)));
+		printMe(swapPairs(convertArrayToList(test_swap_4)));
 		
 		// To test your removeEvenLength method, convert the following to ArrayLists of Strings and 
 		// pass them into your removeEvenLength method.  
@@ -184,13 +191,14 @@ public class ArrayListPracticeLab
 		//    a
 		//    Did, you, solve, what?
 		//    <blank>
+		
 		String[] test_rem_1 = {"This", "is", "a", "test"};
 		String[] test_rem_2 = {"Did", "you", "solve", "it", "or", "what?"};
 		String[] test_rem_3 = {};
 		
-		System.out.println(removeEvenLength(convertArrayToList(test_rem_1)));
-		System.out.println(removeEvenLength(convertArrayToList(test_rem_2)));
-		System.out.println(removeEvenLength(convertArrayToList(test_rem_3)));
+		printMe(removeEvenLength(convertArrayToList(test_rem_1)));		
+		printMe(removeEvenLength(convertArrayToList(test_rem_2)));
+		printMe(removeEvenLength(convertArrayToList(test_rem_3)));
 				
 		// To test your doubleList method, convert the following to ArrayLists of Strings and 
 		// pass them into your doubleList method.  
@@ -202,12 +210,9 @@ public class ArrayListPracticeLab
 		String[] test_doub_2 = {"One string only"};		
 		String[] test_doub_3 = {};	
 		
-		System.out.println(doubleList(convertArrayToList(test_doub_1)));
-		System.out.println(doubleList(convertArrayToList(test_doub_2)));
-		System.out.println(doubleList(convertArrayToList(test_doub_3)));
-		
-		System.out.println("sdfdsfd");
-	
+		printMe(doubleList(convertArrayToList(test_doub_1)));
+		printMe(doubleList(convertArrayToList(test_doub_2)));
+		printMe(doubleList(convertArrayToList(test_doub_3)));	
 	}
 
 }
