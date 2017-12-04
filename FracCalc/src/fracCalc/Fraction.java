@@ -95,6 +95,10 @@ public class Fraction {
 		
 		String answer = this.numeratorNum + "/" + this.denominatorNum;
 		
+		if (this.numeratorNum == 0 || this.denominatorNum == 0) {
+			Fraction ans = new Fraction("0");
+		}
+		
 		Fraction outcome = new Fraction(answer);
 		return outcome;
 	}
@@ -123,16 +127,80 @@ public class Fraction {
 	    //return "whole: 1, numerator: 5, denominator: 6"  (to pass checkpoint 2 tests)
 		this.wholeNum = this.numeratorNum / this.denominatorNum;
 		int numerNum = (this.numeratorNum % this.denominatorNum);
-			
+		int origNumer = numerNum;
+		int origDenom = this.denominatorNum;
+		
 		if (numerNum < 0) { 
 			numerNum = numerNum * (-1);
 		}
 		if (this.denominatorNum < 0) {
 			this.denominatorNum = this.denominatorNum * (-1);
 		}
+				
+		int greatestCommon = gcf(numerNum, this.denominatorNum);
 		
-		//if two numbers are negative
+		numerNum = numerNum / greatestCommon;
+		this.denominatorNum = this.denominatorNum / greatestCommon;
 		
+		if (wholeNum == 0) {
+			if (numerNum == 0) {
+				return 0 + "";
+			}
+			if (origNumer < 0) {
+				return "-" + numerNum + "/" + this.denominatorNum;
+			}
+			if (origDenom < 0 ) {
+				return "-" + numerNum + "/" + this.denominatorNum;
+			}
+			return numerNum + "/" + this.denominatorNum;
+		} else if (numerNum == 0 && (this.denominatorNum == 1 || this.denominatorNum == -1)) {
+			return this.wholeNum + "";
+		} else if (wholeNum != 0 && numerNum == 0) {
+			return wholeNum + "";
+		}
+			
 		return this.wholeNum + "_" + numerNum + "/" + this.denominatorNum;
 	}
+	
+	//GCF Method
+	public static int gcf(int num1, int num2) {
+		int answer = 1;
+		int count = 1;
+		while (count <= min(num1, num2)) {
+			if (isDivisibleBy(num1, count) && isDivisibleBy(num2, count)){
+				answer = count;
+				count += 1;
+			} else {
+				count += 1;		
+			}
+		}
+		return answer;
+	}
+	
+	//Min Method
+	public static int min(int a, int b) {
+		if (a < b) {
+			return a;
+		} else { 
+			return b;
+		}
+	}
+	
+	//Is Divisble By
+	public static boolean isDivisibleBy(int a, int b) {
+		
+		// pre: a and b >= 0
+		// post: returns exponent
+		if ( (a < 0) || (b < 0) ) {
+			throw new IllegalArgumentException("negative number: " + a + " or " + b);
+		}
+		boolean answer = true;
+		if ((a%b) == 0) {
+			answer = true;
+		} else {
+			answer = false;
+		}
+		return answer;
+	}
+	
 }

@@ -9,11 +9,8 @@ public class FracCalc {
     	
     	//Checkpoint 2
     	boolean run = true;
-    	
     		while (run) {
-    			
     			try {
-    			
 	    			//Checkpoint 1
 	    			Scanner console = new Scanner(System.in);
 	    			System.out.println("What something that you want to calculate?");
@@ -26,9 +23,8 @@ public class FracCalc {
 	    				System.out.println(produceAnswer(input));
 	    			}
     			}
-    			
     			catch(Exception e) {
-    				System.out.println("Try again!");
+    				System.out.println("ERROR:");
     			}
     	}
     }
@@ -53,29 +49,35 @@ public class FracCalc {
 //  		fractions, mixed fractions, and integers.
     	
     	String[] arr = input.split(" ");
-    	String ans1 = arr[0];
-    	String ans2 = arr[2];
-    	    	
-    	String operator = arr[1]; 	
     	
-    	Fraction frac1 = new Fraction(ans1);
-		Fraction frac2 = new Fraction(ans2);
-		
-		Fraction answer = new Fraction("-9999999");
-
-    	// GIANT IF STATEMENT
-		
-		if (operator.equals("+")) {
-			answer = frac1.add(frac2);
-		} else if(operator.equals("-")) {
-			answer = frac1.subtract(frac2);
-		} else if(operator.equals("*")) {
-			answer = frac1.multiply(frac2);
-		} else if(operator.equals("/")) {
-			answer = frac1.divide(frac2);
-		}
-		
-		return answer.toString();
+    	Fraction answer = new Fraction("-9999999");
+    	
+    	if (arr.length == 1) {
+    		answer = new Fraction(arr[0]);
+    	} else { 
+	    	String ans1 = arr[0];
+	    	String ans2 = arr[2];
+	    	    	
+	    	String operator = arr[1]; 	
+	    	
+	    	Fraction frac1 = new Fraction(ans1);
+			Fraction frac2 = new Fraction(ans2);
+	
+	    	// GIANT IF STATEMENT
+			
+			if (operator.equals("+")) {
+				answer = frac1.add(frac2);
+			} else if(operator.equals("-")) {
+				answer = frac1.subtract(frac2);
+			} else if(operator.equals("*")) {
+				answer = frac1.multiply(frac2);
+			} else if(operator.equals("/")) {
+				answer = frac1.divide(frac2);
+			}
+    	}
+			
+    	return answer.toString();
+    	
     }	
     
     //    public static String commonDenominator()
