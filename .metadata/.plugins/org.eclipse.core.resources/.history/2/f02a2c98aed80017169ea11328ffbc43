@@ -75,7 +75,9 @@ public class FracCalc {
 				answer = frac1.divide(frac2);
 			}
     	}
+			
     	return answer.toString();
+    	
     }	
     
     //    public static String commonDenominator()
