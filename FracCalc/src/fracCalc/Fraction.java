@@ -154,6 +154,8 @@ public class Fraction {
 			return this.wholeNum + "";
 		} else if (wholeNum != 0 && numerNum == 0) {
 			return wholeNum + "";
+		} else if(numerNum != 0 && this.denominatorNum == 0) {
+			System.out.println("Error: Can not divide by zero");
 		}
 			
 		return this.wholeNum + "_" + numerNum + "/" + this.denominatorNum;
