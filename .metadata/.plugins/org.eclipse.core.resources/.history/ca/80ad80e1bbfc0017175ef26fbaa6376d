@@ -1,0 +1,18 @@
+
+public class Wizard 
+{
+	
+	// constructor
+	public Wizard()
+	{
+		
+	}
+	
+	public void travel(int miles)
+	{
+		//When everyone travels together, the wizard goes twice as far because he first scouts ahead.  
+		
+	}
+	
+	
+}

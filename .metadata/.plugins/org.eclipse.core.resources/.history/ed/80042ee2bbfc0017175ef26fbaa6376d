@@ -1,0 +1,25 @@
+
+public class Traveler 
+{
+	//fields
+	private int distanceTraveled;
+	
+	//constructor
+	public Traveler()
+	{
+		this.distanceTraveled = 0;
+	}
+	
+	//methods
+	public int getDistanceTraveled()
+	{
+		return distanceTraveled;
+	}
+	
+	public void travel(int miles)
+	{
+		distanceTraveled += miles;
+	}
+	
+	
+}

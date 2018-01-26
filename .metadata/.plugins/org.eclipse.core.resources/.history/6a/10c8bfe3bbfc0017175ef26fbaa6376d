@@ -1,0 +1,13 @@
+
+public class Hobbit 
+{
+	private boolean ringObsessed;
+	
+	public Hobbit()
+	{
+		
+		
+	}
+	
+	
+}
