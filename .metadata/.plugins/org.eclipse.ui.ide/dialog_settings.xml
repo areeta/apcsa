@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/AreetaW/Desktop/GitHub/APCSA/Prisms"/>
+		<item value="/Users/AreetaW/Desktop/Prisms"/>
 		<item value="/Users/AreetaW/Desktop/GitHub/APCSA/TheHobbitRevised"/>
 		<item value="/Users/AreetaW/Desktop/GitHub/APCSA/TheHobbit.zip_expanded"/>
 		<item value="/Users/AreetaW/Desktop/TheHobbitRevised"/>

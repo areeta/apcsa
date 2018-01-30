@@ -58,14 +58,14 @@ public class ThereAndBackAgain
 	// Then it uses a loop to add all the dwarves from the String array to the party.
 	public static void createParty(ArrayList<Traveler> party, String[] dwarfNames) {	
 		
-		Hobbit bilbo = new Hobbit("Bilbo");
-		Wizard gandalf = new Wizard("Gandalf", "Grey");
+		Traveler bilbo = new Hobbit("Bilbo");
+		Traveler gandalf = new Wizard("Gandalf", "Grey");
 		
 		party.add(bilbo);
 		party.add(gandalf);
 		
 		for (int i = 0; i < dwarfNames.length; i++) {
-			Dwarf ppl = new Dwarf(dwarfNames[i]);
+			Traveler ppl = new Dwarf(dwarfNames[i]);
 			party.add(ppl);
 		}
 		
@@ -84,7 +84,7 @@ public class ThereAndBackAgain
 		String answer = "";
 		
 		for (int traveler = 0; traveler < party.size(); traveler++) {
-			party.get(traveler).travel(100);
+			party.get(traveler).travel(miles);
 			answer += (party.get(traveler).getName() + " has traveled " + party.get(traveler).getDistanceTraveled() + " miles." + "\n");
 		}
 		
