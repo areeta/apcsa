@@ -3261,3 +3261,23 @@ org.eclipse.core.runtime.CoreException: The Class File Viewer cannot handle the 
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
 !SUBENTRY 2 org.eclipse.jdt.ui 4 996 2018-01-30 09:48:35.669
 !MESSAGE The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').
+!SESSION 2018-01-30 10:14:18.421 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/AreetaW/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/AreetaW/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2018-01-30 10:14:21.511
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2018-01-31 21:16:56.720 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/AreetaW/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/AreetaW/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2018-01-31 21:17:00.262
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
