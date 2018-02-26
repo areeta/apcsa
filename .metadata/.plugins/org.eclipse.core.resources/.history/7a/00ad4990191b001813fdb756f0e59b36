@@ -16,7 +16,9 @@ public class Spreadsheet implements Grid {
 	@Override
 	public String processCommand(String command) {
 		
-		if (command.equalsIgnoreCase("clear")) {            		//clear the whole spreadsheet
+		command.toLowerCase();
+
+		if (command.equals("clear")) {            		//clear the whole spreadsheet
 			for(int r = 0; r < getRows(); r++) {
 				for (int c = 0; c < getCols(); c++) {
 					grid[r][c] = new EmptyCell();

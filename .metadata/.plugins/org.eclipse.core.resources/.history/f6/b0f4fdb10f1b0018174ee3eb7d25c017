@@ -16,13 +16,15 @@ public class Spreadsheet implements Grid {
 	@Override
 	public String processCommand(String command) {
 		
-		if (command.equalsIgnoreCase("clear")) {            		//clear the whole spreadsheet
+		command.toLowerCase();
+
+		if (command.equals("clear")) {            		//clear the whole spreadsheet
 			for(int r = 0; r < getRows(); r++) {
 				for (int c = 0; c < getCols(); c++) {
 					grid[r][c] = new EmptyCell();
 				}
 			}
-		} else if (command.length() == 2 || command.length() == 3) {       		//cell inspection
+		} else if (command.length() == 2) {       		//cell inspection
 						
 			SpreadsheetLocation loc = new SpreadsheetLocation(command);
 			return grid[loc.getRow()][loc.getCol()].fullCellText() ;
@@ -35,7 +37,6 @@ public class Spreadsheet implements Grid {
 			SpreadsheetLocation loc = new SpreadsheetLocation(cellName);
 			
 			TextCell text = new TextCell(commandArr[2], loc);
-			text.abbreviatedCellText();
 			grid[loc.getRow()][loc.getCol()] = text;
 			
 		} else if (command.split(" ",2).length == 2) {	//clearing a particular cell 
