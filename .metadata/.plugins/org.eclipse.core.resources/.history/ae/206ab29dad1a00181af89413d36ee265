@@ -1,0 +1,100 @@
+package textExcel;
+
+public class Spreadsheet implements Grid, Cell  {
+	
+	private Cell[][] grid; 
+	
+	public Spreadsheet() {
+		grid = new Cell[getRows()][getCols()]; 
+		for(int r = 0; r < getRows(); r++) {
+			for (int c = 0; c < getCols(); c++) {
+				grid[r][c] = new EmptyCell();
+			}
+		}
+	}
+
+	@Override
+	public String processCommand(String command) {
+		
+		command.toLowerCase();
+
+		if (command.equals("clear")) {            //clear the whole spreadsheet
+			for(int r = 0; r < getRows(); r++) {
+				for (int c = 0; c < getCols(); c++) {
+					grid[r][c] = new EmptyCell();
+				}
+			}
+		} else if (command.length() == 2) {       //cell inspection
+			
+			String[] commandArr = command.split("");
+			int row = Integer.parseInt(commandArr[1]);
+			int col = Character.toUpperCase(commandArr[0].charAt(0)) - 'A';
+			return grid[row][col].fullCellText();	
+			
+		} 
+
+		// assignment of string values
+		String[] commandArr = command.split("=", 2);
+		
+		// first part ==> A1
+		String[] location = commandArr[0].split("");
+		int row = Integer.parseInt(location[1]);
+		int col = Character.toUpperCase(location[0].charAt(0)) - 'A';
+		
+		// making the text inside the cell
+		TextCell text = new TextCell(commandArr[1]);
+		 = grid[row][col].fullCellText();
+		return grid[row][col].abbreviatedCellText();	
+	}
+
+	@Override
+	public int getRows() {
+		return 20;
+	}
+
+	@Override
+	public int getCols() {
+		return 12;
+	}
+
+	@Override
+	public Cell getCell(Location loc) {
+		return grid[loc.getRow()][loc.getCol()];
+	}
+
+	@Override
+	public String getGridText() {
+		
+		String gridText = "   |";
+
+		for (int i = 0; i < getCols(); i++) {
+			gridText += (char)(i+65) + "         |";
+		}
+		
+		gridText += "\n";
+		
+		for(int j = 1; j < getRows() + 1; j++) {
+			
+			gridText += String.format("%-3s|", j);
+			for (int times = 0; times < getCols(); times++) {
+				gridText += "          |";
+			}
+			gridText += "\n";
+		}
+		return gridText;
+	}
+
+	@Override
+	public String abbreviatedCellText() {
+		return abbreviatedCellText();
+	}
+
+	@Override
+	public String fullCellText() {
+		return fullCellText();
+	}
+
+	public String toString(String word) {
+		return word;
+	}
+}

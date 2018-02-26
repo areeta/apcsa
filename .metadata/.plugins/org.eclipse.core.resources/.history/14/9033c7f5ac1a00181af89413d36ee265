@@ -1,0 +1,15 @@
+package textExcel;
+
+public class TextCell implements Cell{
+
+	@Override
+	public String abbreviatedCellText() {
+		return String.format("|%.10s|");
+	}
+
+	@Override
+	public String fullCellText() {
+		return String.format("|%s|");
+	}
+
+}
