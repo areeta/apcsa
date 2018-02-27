@@ -46,6 +46,9 @@ public class Spreadsheet implements Grid {
 			SpreadsheetLocation loc = new SpreadsheetLocation(cellName);
 			
 			grid[loc.getRow()][loc.getCol()] = new EmptyCell();
+			
+		} else {
+			return "";
 		}
 		
 		return getGridText();

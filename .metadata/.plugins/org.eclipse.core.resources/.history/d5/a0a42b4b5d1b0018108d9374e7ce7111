@@ -1,0 +1,24 @@
+package textExcel;
+
+public class TextCell implements Cell{
+
+	private String text;
+	private Location loc;
+	
+	public TextCell(String text, Location loc) {
+		this.text = text;
+		this.loc = loc;
+	}
+	
+	@Override
+	public String abbreviatedCellText() {
+		String otherText = String.format("%.10s", text);
+		return otherText.substring();
+	}
+
+	@Override
+	public String fullCellText() {
+		return String.format("%s", text);
+	}
+
+}

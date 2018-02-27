@@ -12,7 +12,7 @@ public class TextCell implements Cell{
 	
 	@Override
 	public String abbreviatedCellText() {
-		return String.format("%.10s", text);
+		return String.format("%-10.10s",text.substring(1,text.length()-1));
 	}
 
 	@Override
