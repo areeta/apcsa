@@ -1,0 +1,10 @@
+package textExcel;
+
+public class FormulaCell extends RealCell {
+
+	public FormulaCell(String text, Location loc) {
+		super(text, loc);
+		// TODO Auto-generated constructor stub
+	}
+
+}

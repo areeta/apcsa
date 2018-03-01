@@ -1,0 +1,28 @@
+package textExcel;
+
+public class RealCell implements Cell {
+
+	public String number;
+	private Location loc;
+	
+	public RealCell(String text, Location loc) {
+		this.number = text;
+		this.loc = loc;
+	}
+		
+	@Override
+	public String abbreviatedCellText() {
+		return String.format("%-10.10s", number);
+	}
+
+	@Override
+	public String fullCellText() {
+		return String.format("%s%", number);
+	}
+	
+	public double getDoubleValue() {
+		return Double.parseDouble(number);
+	}
+
+
+}

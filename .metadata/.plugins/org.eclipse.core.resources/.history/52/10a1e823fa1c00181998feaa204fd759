@@ -1,0 +1,29 @@
+package textExcel;
+
+public class ValueCell extends RealCell {
+
+	private String num;
+	private Location loc;
+	
+	public ValueCell(String text, Location loc) {
+		super(text, loc);
+
+	}
+		
+	@Override
+	public String abbreviatedCellText() {
+		String answer = num.substring(1,num.length()-1);
+		return String.format("%-10.10s", answer.getDoubleValue());
+	}
+
+	@Override
+	public String fullCellText() {
+		return String.format("%s", num.substring(1,num.length()-1));
+	}
+	
+	public double getDoubleValue(String answer) {
+		return Double.parseDouble(answer);
+	}
+
+
+}

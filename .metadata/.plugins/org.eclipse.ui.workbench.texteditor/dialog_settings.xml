@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="testLongShortStringCell" key="selection"/>
+		<item value="PercentCell" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="PercentCell"/>
+			<item value="Percent"/>
 			<item value="testLongShortStringCell"/>
 			<item value="arrr"/>
 			<item value="expression"/>
 			<item value="remove"/>
 			<item value="isDi"/>
 			<item value="isDv"/>
-			<item value="min"/>
-			<item value="removeEvenLength"/>
 		</list>
 		<list key="replacehistory">
 			<item value="arr"/>
