@@ -13,13 +13,13 @@ public class PercentCell extends RealCell{
 		
 	@Override
 	public String abbreviatedCellText() {
-		int answer = (int) (getDoubleValue()* 100);
-		return String.format("%9.10s", answer ) + "%";
+		int answer = (int) (getDoubleValue());
+		return String.format("%-10.10s", answer + "%");
 	}
 
 	@Override
 	public String fullCellText() {
-		return String.format("%s", num);
+		return String.format("%s", ((getDoubleValue() / 100)));
 	}
 	
 	public double getDoubleValue() {

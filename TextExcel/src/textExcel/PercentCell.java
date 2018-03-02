@@ -1,14 +1,9 @@
 package textExcel;
 
 public class PercentCell extends RealCell{
-
-	private String num;
-	private Location loc;
 	
 	public PercentCell(String text, Location loc) {
 		super(text, loc);
-		this.num = text;
-		this.loc = loc;
 	}
 		
 	@Override
@@ -23,7 +18,7 @@ public class PercentCell extends RealCell{
 	}
 	
 	public double getDoubleValue() {
-		String ans = num.substring(0, num.length()-1);
+		String ans = super.fullCellText().substring(0, super.fullCellText().length()-1);
 		return Double.parseDouble(ans);
 	}
 	
