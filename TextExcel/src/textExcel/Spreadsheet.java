@@ -18,7 +18,7 @@ public class Spreadsheet implements Grid {
 		
 		String lower = command.toLowerCase();
 				
-		if (command.equalsIgnoreCase("clear")) {            		//clear the whole spreadsheet
+		if (command.equalsIgnoreCase("clear")) {            					//clear the whole spreadsheet
 			for(int r = 0; r < getRows(); r++) {
 				for (int c = 0; c < getCols(); c++) {
 					grid[r][c] = new EmptyCell();
@@ -29,7 +29,7 @@ public class Spreadsheet implements Grid {
 			SpreadsheetLocation loc = new SpreadsheetLocation(command);
 			return grid[loc.getRow()][loc.getCol()].fullCellText();
 			
-		} else if (command.split(" ", 3).length == 3){						//assignment of string values 
+		} else if (command.split(" ", 3).length == 3){							//assignment of string values 
 
 			String[] commandArr = command.split(" ", 3);
 						
@@ -44,32 +44,32 @@ public class Spreadsheet implements Grid {
 				percent.abbreviatedCellText();
 				grid[loc.getRow()][loc.getCol()] = percent;
 				
-			} else if (stringValue.startsWith("(")) { 			//find out if it is a formula
+			} else if (stringValue.startsWith("(")) { 							//find out if it is a formula
 					
 				FormulaCell formula = new FormulaCell(stringValue, loc);
 				formula.abbreviatedCellText();
 				grid[loc.getRow()][loc.getCol()] = formula;
 					
-			} else if (stringValue.startsWith("\"")){ 			//finds out if it is a text
+			} else if (stringValue.startsWith("\"")){ 							//finds out if it is a text
 					
 					TextCell text = new TextCell(stringValue, loc);
 					text.abbreviatedCellText();
 					grid[loc.getRow()][loc.getCol()] = text;
 					
-			} else if (stringValue.contains(".")) { 					//find out if it is a decimal
+			} else if (stringValue.contains(".")) { 							//find out if it is a decimal
 				
 				ValueCell decimal = new ValueCell(stringValue, loc);
 				decimal.abbreviatedCellText();
 				grid[loc.getRow()][loc.getCol()] = decimal;
 				
-			} else { 			// if it's just like A2 = 3
+			} else { 															// if it's just like A2 = 3
 					
 				ValueCell num = new ValueCell(stringValue, loc);
 				num.abbreviatedCellText();
 				grid[loc.getRow()][loc.getCol()] = num;
 			}
 			
-		} else if (lower.contains("clear")) {	//clearing a particular cell 
+		} else if (lower.contains("clear")) {									//clearing a particular cell 
 			
 			String[] commandArr = command.split(" ", 2);
 			

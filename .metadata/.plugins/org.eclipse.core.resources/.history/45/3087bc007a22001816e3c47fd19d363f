@@ -1,0 +1,44 @@
+package textExcel;
+
+public class FormulaCell extends RealCell {
+	
+	public FormulaCell(String text, Location loc) {
+		super(text, loc);
+	}
+		
+	@Override
+	public String abbreviatedCellText() {
+		return String.format("%-10.10s", getDoubleValue());
+	}
+
+	@Override
+	public String fullCellText() {
+		return String.format("%s", super.fullCellText());
+	}
+	
+	public double getDoubleValue() {
+		
+		// When you parse formulas entered by the user, note that formulas always start
+		// with a left parenthesis followed by a space, and that all operators and operands
+		// are separated from each other with a space, and that the formula ends with a space
+		// and then a right parenthesis. Although the formula is surrounded by parentheses, we
+		// will not allow parentheses inside the formula, and they will not be tested.
+		double ans = 0.0;
+		
+		String[] formula = super.fullCellText().split(" ");
+		int forLen = formula.length - 1;
+		
+		for(int i = 1; i < forLen/2; i = i*2) {
+			if(formula[i+2].equals("+")){
+				return Double.parseDouble(formula[i] + formula[i+4]);
+			} else if(formula[i+2].equals("-")){
+				return (Double.parseDouble(formula[i]) - (Double.parseDouble(formula[i+4])));
+			} else if(formula[i+2].equals("*")){
+				return (Double.parseDouble(formula[i]) * (Double.parseDouble(formula[i+4])));
+			} else if(formula[i+2].equals("/")){
+				return (Double.parseDouble(formula[i]) / (Double.parseDouble(formula[i+4])));
+			}
+		}
+		return ans ;
+	}
+}
