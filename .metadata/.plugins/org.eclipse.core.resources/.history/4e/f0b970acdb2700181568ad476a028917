@@ -101,7 +101,7 @@ public class Spreadsheet implements Grid {
 	}
 
 	@Override
-	public String getGridText() { //Creates the whole spreadsheet and prints out the entire thing
+	public String getGridText() {
 		
 		String gridText = "   |";
 

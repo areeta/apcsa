@@ -46,7 +46,7 @@ public class Spreadsheet implements Grid {
 				
 			} else if (stringValue.startsWith("(")) { 							//find out if it is a formula
 					
-				FormulaCell formula = new FormulaCell(stringValue, loc, this);
+				FormulaCell formula = new FormulaCell(stringValue, loc);
 				formula.abbreviatedCellText();
 				grid[loc.getRow()][loc.getCol()] = formula;
 					
@@ -101,7 +101,7 @@ public class Spreadsheet implements Grid {
 	}
 
 	@Override
-	public String getGridText() { //Creates the whole spreadsheet and prints out the entire thing
+	public String getGridText() {
 		
 		String gridText = "   |";
 
