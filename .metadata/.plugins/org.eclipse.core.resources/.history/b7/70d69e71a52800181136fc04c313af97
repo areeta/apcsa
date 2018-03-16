@@ -26,10 +26,14 @@ public class SpreadsheetLocation implements Location {
     	
     }
     
-    public SpreadsheetLocation(int row, int col ) {
+    public SpreadsheetLocation() {
     	
-    	this.row = row;
-    	this.col = col;
+    	char letter = cellName.charAt(0); 
+    	letter = Character.toUpperCase(letter);
+    	this.col = ((int) letter) - 65;
+    	
+    	String num = cellName.substring(1); 
+    	this.row = (Integer.parseInt(num)) - 1;
     	
     }
 }
