@@ -1,5 +1,7 @@
 package textExcel;
 
+import java.util.Arrays;
+
 public class Spreadsheet implements Grid {
 	
 	private Cell[][] grid; 
@@ -11,6 +13,39 @@ public class Spreadsheet implements Grid {
 				grid[r][c] = new EmptyCell();
 			}
 		}
+	}
+	
+	public static Cell[] selectionSort(Cell[] arr) {
+	
+		for(int i = 0; i < arr.length; i++) {
+			int smallestIndex = i;
+			for(int j = 0; j < arr.length; j++) {
+				
+				if (arr[j] instanceof TextCell) {
+					
+					TextCell t = (TextCell) arr[j];
+					TextCell f = (TextCell) arr[smallestIndex];
+					
+					if( t.compareTo(f) > 0 ) {
+						smallestIndex = j;
+					}
+					
+				} else if (arr[j] instanceof RealCell) {
+					
+					RealCell t = (RealCell) arr[j];
+					RealCell f = (RealCell) arr[smallestIndex];
+					
+					if( t.compareTo(f) > 0 ) {
+						smallestIndex = j;
+					}
+				}
+				
+				Cell temp = arr[i];
+				arr[i] = arr[smallestIndex];
+				arr[smallestIndex] = temp;
+			}
+		}
+		return arr;
 	}
 
 	@Override
@@ -52,9 +87,9 @@ public class Spreadsheet implements Grid {
 					
 			} else if (stringValue.startsWith("\"")){ 							//finds out if it is a text
 					
-					TextCell text = new TextCell(stringValue, loc);
-					text.abbreviatedCellText();
-					grid[loc.getRow()][loc.getCol()] = text;
+				TextCell text = new TextCell(stringValue, loc);
+				text.abbreviatedCellText();
+				grid[loc.getRow()][loc.getCol()] = text;
 					
 			} else if (stringValue.contains(".")) { 							//find out if it is a decimal
 				
@@ -69,6 +104,50 @@ public class Spreadsheet implements Grid {
 				grid[loc.getRow()][loc.getCol()] = num;
 			}
 			
+		} else if ((command.length() > 5) && (command.contains("sort"))) {
+
+			String[] formula = command.split(" ");
+			String[] cellNames = formula[1].split("-");
+			
+			SpreadsheetLocation firstLoc = new SpreadsheetLocation(cellNames[0]);
+			SpreadsheetLocation secondLoc = new SpreadsheetLocation(cellNames[1]);
+			
+			int length = secondLoc.getRow() - firstLoc.getRow() + 1;
+			int height = secondLoc.getCol() - firstLoc.getCol() + 1;
+			
+			Cell[] arr = new Cell[length*height];
+			
+			int a = 0;
+			
+			for (int r = firstLoc.getRow(); r <= secondLoc.getRow(); r++) {
+				for (int c = firstLoc.getCol(); c <= secondLoc.getCol(); c++) {
+					arr[a] = grid[r][c];
+					a++;
+				}
+			}
+							
+			selectionSort(arr);
+
+			int i = 0;
+			
+			if (command.contains("sorta")) { 				//if increasing
+				i = 0;
+				for (int r = firstLoc.getRow(); r <= secondLoc.getRow(); r++) {
+					for (int c = firstLoc.getCol(); c <= secondLoc.getCol(); c++) {
+						grid[r][c] = arr[i];
+						i++;
+					}
+				}
+			} else if (command.contains("sortd")) {			//if decreasing
+				i = length*height-1;
+				for (int r = firstLoc.getRow(); r <= secondLoc.getRow(); r++) {
+					for (int c = firstLoc.getCol(); c <= secondLoc.getCol(); c++) {
+						grid[r][c] = arr[i];
+						i--;
+					}
+				}
+			}
+			
 		} else if (lower.contains("clear")) {									//clearing a particular cell 
 			
 			String[] commandArr = command.split(" ", 2);
@@ -78,9 +157,7 @@ public class Spreadsheet implements Grid {
 			
 			grid[loc.getRow()][loc.getCol()] = new EmptyCell();
 			
-		} else {
-			return "";
-		}
+		} 
 		
 		return getGridText();
 	}

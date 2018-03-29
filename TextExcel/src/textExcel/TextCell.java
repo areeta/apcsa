@@ -1,6 +1,6 @@
 package textExcel;
 
-public class TextCell implements Cell{
+public class TextCell implements Cell, Comparable<TextCell> {
 
 	private String text;
 	private Location loc;
@@ -18,6 +18,19 @@ public class TextCell implements Cell{
 	@Override
 	public String fullCellText() {
 		return String.format("%s", text);
+	}
+
+	// TextCell should rely on the String class’s compareTo() method to sort alphabetically based on the String returned by fullCellText().  
+
+	public int compareTo(TextCell a) {
+		
+		if (this.fullCellText().compareTo(a.fullCellText()) > 0) {
+			return 1;
+		} else if (this.fullCellText().compareTo(a.fullCellText()) < 0) {
+			return -1;
+		}
+		
+		return 0;
 	}
 
 }
