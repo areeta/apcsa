@@ -49,11 +49,11 @@ public class Spreadsheet implements Grid {
 	}
 
 	@Override
-	public String processCommand(String command) {
+	public String processCommand(String com) {
 		
-		String com = command.toLowerCase();
+		String command = com.toLowerCase();
 				
-		if (com.equals("clear")) {            					//clear the whole spreadsheet
+		if (command.equals("clear")) {            					//clear the whole spreadsheet
 			for(int r = 0; r < getRows(); r++) {
 				for (int c = 0; c < getCols(); c++) {
 					grid[r][c] = new EmptyCell();
@@ -104,7 +104,7 @@ public class Spreadsheet implements Grid {
 				grid[loc.getRow()][loc.getCol()] = num;
 			}
 			
-		} else if ((command.length() > 5) && (com.contains("sort"))) {
+		} else if ((command.length() > 5) && (command.contains("sort"))) {
 
 			String[] formula = command.split(" ");
 			String[] cellNames = formula[1].split("-");
@@ -130,7 +130,7 @@ public class Spreadsheet implements Grid {
 
 			int i = 0;
 			
-			if (com.contains("sorta")) { 				//if increasing
+			if (command.contains("sorta")) { 				//if increasing
 				i = 0;
 				for (int r = firstLoc.getRow(); r <= secondLoc.getRow(); r++) {
 					for (int c = firstLoc.getCol(); c <= secondLoc.getCol(); c++) {
@@ -138,7 +138,7 @@ public class Spreadsheet implements Grid {
 						i++;
 					}
 				}
-			} else if (com.contains("sortd")) {			//if decreasing
+			} else if (command.contains("sortd")) {			//if decreasing
 				i = length*height-1;
 				for (int r = firstLoc.getRow(); r <= secondLoc.getRow(); r++) {
 					for (int c = firstLoc.getCol(); c <= secondLoc.getCol(); c++) {
@@ -147,18 +147,6 @@ public class Spreadsheet implements Grid {
 					}
 				}
 			}
-			
-		} else if (com.contains("clear")) {									//clearing a particular cell 
-			
-			String[] commandArr = command.split(" ", 2);
-			
-			String cellName = commandArr[1];
-			SpreadsheetLocation loc = new SpreadsheetLocation(cellName);
-			
-			grid[loc.getRow()][loc.getCol()] = new EmptyCell();
-			
-		} else {
-			return "";
 		}
 		
 		return getGridText();

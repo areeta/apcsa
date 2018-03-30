@@ -147,18 +147,6 @@ public class Spreadsheet implements Grid {
 					}
 				}
 			}
-			
-		} else if (com.contains("clear")) {									//clearing a particular cell 
-			
-			String[] commandArr = command.split(" ", 2);
-			
-			String cellName = commandArr[1];
-			SpreadsheetLocation loc = new SpreadsheetLocation(cellName);
-			
-			grid[loc.getRow()][loc.getCol()] = new EmptyCell();
-			
-		} else {
-			return "";
 		}
 		
 		return getGridText();

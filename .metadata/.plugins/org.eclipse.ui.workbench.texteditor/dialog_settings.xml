@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="command"/>
 			<item value="PercentCell"/>
 			<item value="Percent"/>
 			<item value="testLongShortStringCell"/>
@@ -15,7 +16,6 @@
 			<item value="expression"/>
 			<item value="remove"/>
 			<item value="isDi"/>
-			<item value="isDv"/>
 		</list>
 		<list key="replacehistory">
 			<item value="arr"/>

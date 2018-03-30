@@ -23,8 +23,7 @@ public abstract class RealCell implements Cell, Comparable<RealCell> {
 	public abstract double getDoubleValue();
 	
 	public int compareTo(RealCell a) {
-		double x = this.getDoubleValue();
-		double y = a.getDoubleValue();
+		
 		if (this.getDoubleValue() > a.getDoubleValue()) {
 			return 1;
 		} else if (this.getDoubleValue() < a.getDoubleValue()) {
