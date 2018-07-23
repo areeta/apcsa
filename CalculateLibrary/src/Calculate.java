@@ -30,7 +30,7 @@ public class Calculate {
 		return answer;
 	}
 	
-   public static double discriminant(double a, double b, double c) 	{
+   	public static double discriminant(double a, double b, double c) {
 		double answer = ((b*b) - (4*a*c));
 		return answer;
 	}
